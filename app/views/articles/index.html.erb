@@ -10,10 +10,12 @@
         </tr>
     </thead>
     <tbody>
+        <% @articles.each do | article | %>
         <tr>
-            <td>Dummy Title</td>
-            <td>Dummy Description</td>
+            <td><%= article.title %></td>
+            <td><%= article.description %></td>
             <td>Action Buttons</td>
         </tr>
+        <% end %>
     </tbody>
 </table>
