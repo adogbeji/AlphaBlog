@@ -13,8 +13,12 @@ class ArticlesController < ApplicationController
     def create
         # render plain: params[:article]
         @article = Article.new(params.require(:article).permit(:title, :description))
-        @article.save
-        # redirect_to article_path(@article)  # Origina redirect code
-        redirect_to @article  # Redirect shortcut
+        
+        if @article.save
+           # redirect_to article_path(@article)  # Original redirect code
+           redirect_to @article  # Redirect shortcut
+        else
+            render 'new'  # Renders new action template
+        end
     end
 end
